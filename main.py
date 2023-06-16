@@ -1,46 +1,44 @@
-# import random module
+# mengimpor modul random
 import random
 
 
-# function for choosing random word.
+# fungsi untuk memilih kata acak.
 def choose():
     # list of word
     words = ['rainbow', 'computer', 'science', 'programming',
              'mathematics', 'player', 'condition', 'reverse',
              'water', 'board', 'geeks']
 
-    # choice() method randomly choose
-    # any word from the list.
+    # metode choice() memilih secara acak
+    # kata apa pun dari daftar.
     pick = random.choice(words)
 
     return pick
 
 
-# Function for shuffling the
-# characters of the chosen word.
+# Function for shuffling the characters of the chosen word.
 def jumble(word):
 
-    # sample() method shuffling the characters of the word
+    # metode sample() mengacak huruf dari kata
     random_word = random.sample(word, len(word))
 
-    # join() method join the elements
-    # of the iterator(e.g. list) with particular character .
+    # metode join() menghubungkan elemen dari iterator (mis. daftar) dengan karakter tertentu.
     jumbled = ''.join(random_word)
     return jumbled
 
 
-# Function for showing final score.
+# Fungsi untuk menampilkan skor akhir..
 def thank(p1n, p2n, p1, p2):
     print(p1n, 'Your score is : ', p1)
     print(p2n, 'Your score is : ', p2)
 
-    # check_win() function calling
+    # memanggil fungsi check_win()
     check_win(p1n, p2n, p1, p2)
 
     print('Thanks for playing...')
 
 
-# Function for declaring winner
+# Fungsi untuk mendeklarasikan pemenang.
 def check_win(player1, player2, p1score, p2score):
     if p1score > p2score:
         print("winner is : ", player1)
@@ -50,42 +48,42 @@ def check_win(player1, player2, p1score, p2score):
         print("Draw..Well Played guys..")
 
 
-# Function for playing the game.
+# Fungsi untuk memainkan game.
 def play():
-    # enter player1 and player2 name
+    # masukkan nama pemain1 dan pemain2
     p1name = input("Player 1, Please enter your name : ")
     p2name = input("Player 2, Please enter your name : ")
 
-    # variable for counting score.
+    # variabel untuk menghitung skor.
     pp1 = 0
     pp2 = 0
 
-    # variable for counting turn
+    # variabel untuk menghitung giliran
     turn = 0
 
     # keep looping
     while True:
 
-        # choose() function calling
+        # memanggil fungsi choose()
         picked_word = choose()
 
-        # jumble() function calling
+        # memanggil fungsi jumble()
         qn = jumble(picked_word)
         print("jumbled word is : ", qn)
 
-        # checking turn is odd or even
+        # memeriksa giliran ganjil atau genap
         if turn % 2 == 0:
 
-            # if turn no. is even
-            # player1 turn
+            # jika nomor giliran genap
+            # giliran pemain 1
             print(p1name, 'Your Turn.')
 
             ans = input("what is in your mind? ")
 
-            # checking ans is equal to picked_word or not
+            # memeriksa apakah jawaban sama dengan picked_word atau tidak
             if ans == picked_word:
 
-                # incremented by 1
+                # variabel pp1 ditambah 1
                 pp1 += 1
 
                 print('Your score is : ', pp1)
@@ -94,7 +92,7 @@ def play():
             else:
                 print("Better luck next time ..")
 
-                # player 2 turn
+                # giliran pemain 2
                 print(p2name, 'Your turn.')
 
                 ans = input('what is in your mind? ')
@@ -118,8 +116,8 @@ def play():
 
         else:
 
-            # if turn no. is odd
-            # player2 turn
+            # jika nomor giliran ganjil
+            # giliran pemain 2
             print(p2name, 'Your turn.')
             ans = input('what is in your mind? ')
 
